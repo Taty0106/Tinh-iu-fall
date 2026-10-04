@@ -1,41 +1,47 @@
 const secretLeaf = document.getElementById("secretLeaf");
 const letterOverlay = document.getElementById("letterOverlay");
+
 const phrases = document.querySelectorAll(".phrase");
 const signature = document.querySelector(".signature");
 
 let opened = false;
 
-secretLeaf.addEventListener("click", () => {
+function openLetter(event) {
+    event.preventDefault();
+
     if (opened) return;
 
     opened = true;
 
-    // Show the envelope
+    // Envelope appears
     letterOverlay.classList.add("show");
 
-    // Give the envelope a moment to appear,
-    // then open the flap.
+    // Envelope opens
     setTimeout(() => {
         letterOverlay.classList.add("open");
     }, 600);
 
-    // First phrase
+    // Paper comes out first.
+    // Then the phrases begin.
     setTimeout(() => {
         phrases[0].classList.add("visible");
-    }, 1500);
+    }, 2200);
 
-    // Second phrase
+    // 3 seconds later
     setTimeout(() => {
         phrases[1].classList.add("visible");
-    }, 3300);
+    }, 5200);
 
-    // Third phrase
+    // 3 seconds later
     setTimeout(() => {
         phrases[2].classList.add("visible");
-    }, 5100);
+    }, 8200);
 
-    // Signature
+    // 3 seconds later
     setTimeout(() => {
         signature.classList.add("visible");
-    }, 6900);
-});
+    }, 11200);
+}
+
+secretLeaf.addEventListener("click", openLetter);
+secretLeaf.addEventListener("touchend", openLetter);
