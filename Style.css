@@ -518,50 +518,88 @@ body {
 }
 
 /* Letter */
-
 .letter {
     position: absolute;
     width: 88%;
-    height: 86%;
+    height: 88%;
     left: 6%;
     top: 5%;
-    background: #fff7e8;
+
+    background:
+        linear-gradient(
+            rgba(255, 255, 255, 0.35),
+            rgba(255, 255, 255, 0)
+        ),
+        #fff7e8;
+
     z-index: 2;
     border-radius: 3px;
-    transform: translateY(15px);
-    transition: transform 1s ease;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+
+    transform: translateY(0);
+
+    transition:
+        transform 1.4s cubic-bezier(0.22, 1, 0.36, 1),
+        box-shadow 0.8s ease;
+
+    box-shadow:
+        0 5px 18px rgba(0, 0, 0, 0.12);
+
     overflow: hidden;
 }
 
 .letter-content {
-    padding: 30px 28px;
+    height: 100%;
+    padding: 35px 30px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
     text-align: center;
+
     color: #4d1a20;
+
     font-size: clamp(15px, 2vw, 19px);
-    line-height: 1.45;
+    line-height: 1.5;
 }
 
 .phrase {
+    width: 100%;
+
     opacity: 0;
-    transform: translateY(10px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
-    margin-bottom: 22px;
+    transform: translateY(15px);
+
+    transition:
+        opacity 0.9s ease,
+        transform 0.9s ease;
+
+    margin-bottom: 25px;
 }
 
-.phrase.visible,
-.signature.visible {
+.phrase.visible {
     opacity: 1;
     transform: translateY(0);
 }
 
 .signature {
     opacity: 0;
-    transform: translateY(10px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
-    margin-top: 8px;
+    transform: translateY(15px);
+
+    transition:
+        opacity 0.9s ease,
+        transform 0.9s ease;
+
+    margin-top: 5px;
+
     font-style: italic;
 }
+
+.signature.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 
 /* Front pocket */
 
@@ -604,7 +642,10 @@ body {
 }
 
 .letter-overlay.open .letter {
-    transform: translateY(-20px);
+    z-index: 6;
+    transform: translateY(-62%);
+    box-shadow:
+        0 18px 35px rgba(0, 0, 0, 0.22);
 }
 
 /* =========================
