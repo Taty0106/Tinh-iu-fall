@@ -258,13 +258,13 @@ body {
     width: min(360px, 38vw);
     z-index: 6;
 }
-
 .record {
     position: relative;
     width: min(330px, 35vw);
     aspect-ratio: 1;
     margin-left: auto;
     border-radius: 50%;
+
     background:
         repeating-radial-gradient(
             circle,
@@ -273,12 +273,14 @@ body {
             #181818 3px,
             #080808 5px
         );
+
     box-shadow:
         0 18px 45px rgba(0, 0, 0, 0.45),
         inset 0 0 20px rgba(255, 255, 255, 0.04);
+
     animation: vinylSpin 8s linear infinite;
-    transform-origin: center;
 }
+
 @keyframes vinylSpin {
     from {
         transform: rotate(0deg);
@@ -288,6 +290,7 @@ body {
         transform: rotate(360deg);
     }
 }
+
 .record::after {
     content: "";
     position: absolute;
