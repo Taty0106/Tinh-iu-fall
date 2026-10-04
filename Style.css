@@ -394,20 +394,29 @@ body {
 /* =========================
    SECRET LEAF
 ========================= */
-
 .secret-leaf {
     position: absolute;
     left: 47%;
     bottom: 10%;
     z-index: 20;
+
     border: none;
     background: transparent;
+
     font-size: 42px;
     cursor: pointer;
+
     filter:
         drop-shadow(0 0 7px rgba(255, 215, 130, 0.8))
         drop-shadow(0 0 18px rgba(255, 185, 80, 0.45));
-    animation: glowingLeaf 1.8s ease-in-out infinite;
+
+    animation:
+        glowingLeaf 1.8s ease-in-out infinite,
+        secretLeafFloat 4s ease-in-out infinite;
+
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+
     transition: transform 0.3s ease;
 }
 
@@ -419,20 +428,38 @@ body {
     transform: scale(0.9);
 }
 
-@keyframes glowingLeaf {
-    0%,
-    100% {
-        filter:
-            drop-shadow(0 0 5px rgba(255, 215, 130, 0.65))
-            drop-shadow(0 0 12px rgba(255, 185, 80, 0.25));
+@keyframes secretLeafFloat {
+    0% {
+        margin-top: 0;
+        margin-left: 0;
+        rotate: -5deg;
+    }
+
+    25% {
+        margin-top: -18px;
+        margin-left: 18px;
+        rotate: 8deg;
     }
 
     50% {
-        filter:
-            drop-shadow(0 0 10px rgba(255, 225, 150, 1))
-            drop-shadow(0 0 28px rgba(255, 185, 80, 0.7));
+        margin-top: -5px;
+        margin-left: -12px;
+        rotate: -10deg;
+    }
+
+    75% {
+        margin-top: 15px;
+        margin-left: 10px;
+        rotate: 6deg;
+    }
+
+    100% {
+        margin-top: 0;
+        margin-left: 0;
+        rotate: -5deg;
     }
 }
+
 
 /* =========================
    LETTER OVERLAY
